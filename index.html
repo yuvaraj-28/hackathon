@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Price Finder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .input-group button {
+            padding: 10px 15px;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Item Price Finder</h1>
+        <div class="input-group">
+            <label for="itemName">Enter Item Name:</label>
+            <input type="text" id="itemName" placeholder="E.g., Apple, Laptop">
+        </div>
+        <button onclick="findPrice()">Find Price</button>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        // Hardcoded item prices
+        const itemPrices = {
+            'apple': '$1.00',
+            'banana': '$0.50',
+            'laptop': '$999.99',
+            'smartphone': '$699.99',
+            'headphones': '$149.99'
+        };
+
+        function findPrice() {
+            // Get the input value
+            const itemName = document.getElementById('itemName').value.toLowerCase();
+            // Get the result div
+            const resultDiv = document.getElementById('result');
+            
+            // Find the price of the item
+            if (itemPrices.hasOwnProperty(itemName)) {
+                resultDiv.textContent = `The price of ${itemName} is ${itemPrices
